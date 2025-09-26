@@ -1,0 +1,26 @@
+meta {
+  name: client-register
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/auth/register-client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "{{CLIENT_EMAIL}}",
+    "password": "{{CLIENT_PASSWORD}}"
+  }
+}
+
+body:form-urlencoded {
+  : 
+}
+
+settings {
+  encodeUrl: true
+}

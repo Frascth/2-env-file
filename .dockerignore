@@ -1,0 +1,31 @@
+# .dockerignore
+
+# Ignore dependencies - these are installed inside the container
+node_modules
+
+# Ignore environment files - these are injected by Docker Compose
+.env
+.env.local
+.env.*.local
+
+# ignore bruno
+bruno/*
+
+# Ignore git history
+.git
+
+# Ignore logs
+npm-debug.log
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Docker files
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Ignore development configuration
+nodemon.json

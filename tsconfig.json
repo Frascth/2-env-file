@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // ---- Crucial for Compiling ----
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // ---- Module Settings for Node.js ESM ----
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+
+    // ---- Essential Node.js Types ----
+    // This tells TypeScript to recognize Node.js globals like `process`
+    "types": ["node"],
+
+    // ---- Recommended Settings ----
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  // This tells the compiler to only look inside the 'src' folder
+  "include": ["src/**/*"]
+}

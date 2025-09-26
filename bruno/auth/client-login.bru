@@ -1,0 +1,26 @@
+meta {
+  name: client-login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/auth/login-client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "{{CLIENT_EMAIL}}",
+    "password": "{{CLIENT_PASSWORD}}"
+  }
+}
+
+body:form-urlencoded {
+  : 
+}
+
+settings {
+  encodeUrl: true
+}
