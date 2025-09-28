@@ -8,19 +8,19 @@ export const errorHandler = (
     res: Response,
     next: NextFunction,
 ) => {
-    let message = 'An unexpected error occurred';
-
-    let statusCode = 500;
+    if (error instanceof HttpError) {
+        return res.status(error.statusCode).json({ message: error.message });
+    }
 
     const isProduction = process.env.APP_ENV === AppEnv.PRODUCTION;
 
-    if (error instanceof HttpError) {
-        statusCode = error.statusCode;
+    if (isProduction) {
+        return res.status(500).json({ message: 'An unexpected error occurred' });
     }
     
-    if (!isProduction && error instanceof Error) {
-        message = error.message;
-    }
+    const statusCode = (error as any)?.statusCode || 500;
+
+    const message = (error as any)?.message || 'An unexpected error occurred';
 
     return res.status(statusCode).json({ message: message });
 };
